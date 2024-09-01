@@ -17,18 +17,16 @@
         }
         .container {
             text-align: center;
-            background: #222;
+            background: #333;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            width: 400px;
+            width: 300px;
         }
         h1 {
-            font-size: 2em;
+            font-size: 1.8em;
             color: #fff;
-        }
-        #info {
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
         p {
             margin: 10px 0;
@@ -67,8 +65,10 @@
 
     <script>
         // Воспроизведение голоса Ёжика сразу после загрузки страницы
-        const audioGreeting = new Audio('hedgehog-voice2.mp3');
-        audioGreeting.play();
+        window.onload = function() {
+            const audioGreeting = new Audio('hedgehog-voice2.mp3');
+            audioGreeting.play();
+        };
 
         function goBack() {
             window.location.href = 'index.html';
