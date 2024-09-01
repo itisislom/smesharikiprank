@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Информация о рассекречивании</title>
+    <title>Пранк с Ёжиком</title>
     <style>
         body {
             display: flex;
@@ -11,7 +11,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #fff;
             font-family: Arial, sans-serif;
         }
         .container {
@@ -19,41 +19,91 @@
             background: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 400px;
+        }
+        #hedgehog {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        #intro {
+            display: block;
+        }
+        #greeting {
+            display: none;
         }
         h1 {
-            font-size: 2em;
-            color: #000000;
+            font-size: 1.8em;
+            color: #000;
         }
-        #info {
-            margin-top: 20px;
+        p {
+            font-size: 1em;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Упс, походу я тебя узнал</h1>
-        <div id="info">
-            <p>DNS: 192.168.1.1</p>
-            <p>IP: 123.45.67.89</p>
-            <p>MAC-адрес: 00:1A:2B:3C:4D:5E</p>
-            <p>Сетевой хост: comnet-computer.local</p>
-            <p>Имя хоста: comnet-computer</p>
-            <p>Провайдер: Comnet</p>
-            <p>Логин: admin</p>
-            <p>Пароль: 3f5c7e6b8a9d1e2f</p> <!-- Рандомный пароль -->
-            <p>Файлы: config.sys, secret_data.txt</p>
+        <img id="hedgehog" src="hedgehog.png" alt="Ёжик" />
+        <div id="intro">
+            <h1>Привет, меня зовут Ёжик!</h1>
+            <p>Напиши своё имя, чтобы мы с тобой познакомились!</p>
+            <input type="text" id="nameInput" placeholder="Введите ваше имя">
+            <button onclick="submitName()">ОК</button>
         </div>
-        <button onclick="goBack()">Вернуться</button>
+        <div id="greeting">
+            <h1>Ой, кажется я тебя узнал!</h1>
+            <p>Ваше имя: <span id="userName"></span></p>
+            <p>Вы будете перенаправлены на страницу с дополнительной информацией.</p>
+        </div>
     </div>
 
     <script>
-        // Воспроизведение голоса Ёжика
-        const audio = new Audio('hedgehog-voice2.mp3');
-        audio.play();
+        // Воспроизведение голоса Ёжика сразу после загрузки страницы
+        const audioIntro = new Audio('hedgehog-voice.mp3');
+        audioIntro.play();
 
-        function goBack() {
-            window.location.href = 'index.html';
+        function submitName() {
+            const nameInput = document.getElementById('nameInput').value;
+            const userName = document.getElementById('userName');
+            const intro = document.getElementById('intro');
+            const greeting = document.getElementById('greeting');
+
+            if (nameInput.trim() !== '') {
+                userName.textContent = nameInput;
+                intro.style.display = 'none';
+                greeting.style.display = 'block';
+
+                // Воспроизведение голоса Ёжика для второй страницы
+                const audioGreeting = new Audio('hedgehog-voice2.mp3');
+                audioGreeting.play();
+
+                // Перенаправляем через 2 секунды
+                setTimeout(() => {
+                    window.location.href = 'docs.html';
+                }, 2000); // Задержка 2 секунды
+            } else {
+                alert('Пожалуйста, введите ваше имя!');
+            }
         }
     </script>
 </body>
