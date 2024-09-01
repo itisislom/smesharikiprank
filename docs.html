@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о рассекречивании</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2em;
+            color: #000000;
+        }
+        #info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Упс, походу я тебя узнал</h1>
+        <div id="info">
+            <p>DNS: 192.168.1.1</p>
+            <p>IP: 123.45.67.89</p>
+            <p>MAC-адрес: 00:1A:2B:3C:4D:5E</p>
+            <p>Сетевой хост: comnet-computer.local</p>
+            <p>Имя хоста: comnet-computer</p>
+            <p>Провайдер: Comnet</p>
+            <p>Логин: admin</p>
+            <p>Пароль: 3f5c7e6b8a9d1e2f</p> <!-- Рандомный пароль -->
+            <p>Файлы: config.sys, secret_data.txt</p>
+        </div>
+        <button onclick="goBack()">Вернуться</button>
+    </div>
+
+    <script>
+        // Воспроизведение голоса Ёжика
+        const audio = new Audio('hedgehog-voice2.mp3');
+        audio.play();
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
